@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Analyze given web site</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous"></link>
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous"></link>
+	
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
+
+<style type="text/css">
+body {
+	margin: 20px;
+	background: #455a64;
+}
+
+.search-box {
+	position: relative;
+}
+
+.search-box .glyphicon {
+	position: absolute;
+	padding: 10px;
+	pointer-events: none;
+	left: 15px;
+	top: 0px;
+}
+
+.search-box .glyphicon:before {
+	color: white;
+	transition: all 0.2s linear;
+}
+
+.search-box input {
+	color: #fff;
+	padding-left: 60px;
+	background: #546e7a;
+	border: 0;
+	outline: none !important;
+	transition: all 0.2s linear;
+}
+
+.search-box input:focus {
+	background: #fff !important;
+	outline: 0;
+	color: #333;
+}
+
+.search-box input:focus+.glyphicon:before {
+	color: #333;
+}
+
+.search-box input:hover {
+	background: #78909c;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="alert alert-success" role="alert">
+			Analysis of <span class="label label-info" th:text="${analyzeFor}"></span>
+		</div>
+		<hr />
+		<div class="panel">
+			<table class="table">
+				<tbody>
+					<tr>
+						<th>HTML Version</th>
+						<td th:text="${htmlVersion}"></td>
+					</tr>
+					<tr>
+                        <th>Page title</th>
+                        <td th:text="${pageTitle}"></td>
+                    </tr>
+					<tr>
+						<th># of headings</th>
+						<td th:text="${numberOfHeadings}"></td>
+					</tr>
+					<tr>
+						<th># of internal links</th>
+						<td th:text="${numberOfExternalLinks}"></td>
+					</tr>
+					<tr>
+                        <th># of external links</th>
+                        <td th:text="${numberOfExternalLinks}"></td>
+                    </tr>
+                    <tr>
+                        <th>Contains login?</th>
+                        <td th:text="${isLoginFormExists} ? Yes : No"></td>
+                    </tr>
+				</tbody>
+			</table>
+		</div>
+
+<!-- 		<hr /> -->
+<!-- 		<div> -->
+<!-- 			<div class="panel panel-default"> -->
+<!-- 				<div class="panel-heading">HTML Version</div> -->
+<!-- 				<div class="panel-body" th:text="${htmlVersion}"></div> -->
+<!-- 			</div> -->
+
+<!-- 			<div class="panel panel-default"> -->
+<!-- 				<div class="panel-heading">Page Title</div> -->
+<!-- 				<div class="panel-body" th:text="${pageTitle}"></div> -->
+<!-- 			</div> -->
+
+<!-- 			<div class="panel panel-default"> -->
+<!-- 				<div class="panel-heading">Number of headings</div> -->
+<!-- 				<div class="panel-body" th:text="${numberOfHeadings}"></div> -->
+<!-- 			</div> -->
+
+<!-- 			<div class="panel panel-default"> -->
+<!-- 				<div class="panel-heading">Number of hypermedia links -->
+<!-- 					(internal)</div> -->
+<!-- 				<div class="panel-body" th:text="${numberOfInternalLinks}"></div> -->
+<!-- 			</div> -->
+
+<!-- 			<div class="panel panel-default"> -->
+<!-- 				<div class="panel-heading">Number of hypermedia links -->
+<!-- 					(external)</div> -->
+<!-- 				<div class="panel-body" th:text="${numberOfExternalLinks}"></div> -->
+<!-- 			</div> -->
+
+<!-- 			<div class="panel panel-default"> -->
+<!-- 				<div class="panel-heading">Does page contains a login form?</div> -->
+<!-- 				<div class="panel-body" th:text="${isLoginFormExists}"></div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+	</div>
+</body>
+</html>
