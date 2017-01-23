@@ -1,4 +1,3 @@
-# #immobilien-scout
 ### About
 - - - -
 This project creates some analysis of a given web page. These information are:
